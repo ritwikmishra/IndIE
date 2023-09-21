@@ -16,7 +16,7 @@ This is the code for the paper titled "IndIE: A Multilingual Open Information Ex
 
 Download the relevant files from [here](https://drive.google.com/file/d/1UqOUdeK96m6EabI-cg2EeBz6p3IwrPZ6/view?usp=sharing).
 
-Your directory structure should look like this:
+Then place the files in the directories such that your directory structure looks like this:
 
 ```
 .
@@ -29,11 +29,25 @@ Your directory structure should look like this:
 │       └── model
 │           ├── 26_epoch_4.pth.tar
 │           └── sklearn_crf_model_v2_pos_mapped_2.pkl
-├── main.py
-├── README.md
-├── requirements.txt
-└── utils.py
 ```
+
+## Memory needed
+
+The amount of memory needed varies depending upon the number of languages on which you wish to run your triple extraction.
+
+1) All languages (Hindi/Tamil/Telugu/Urdu)
+    * GPU present
+        * ~6GB on CPU/RAM
+        * ~6GB on GPU
+    * GPU absent
+        * ~7GB on CPU/RAM
+2) Only one language
+    * GPU present
+        * ~3GB on CPU/RAM
+        * ~4GB on GPU
+    * GPU absent
+        * ~3GB on CPU/RAM
+
 
 ## Extracting triples
 

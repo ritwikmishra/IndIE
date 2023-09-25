@@ -5,7 +5,6 @@ from utils import *
 
 
 class ChunckProcessor:
-	lang = 'hi' # supports hi tm te ur
 	use_gpu = True
 
 	hyper_params = {
@@ -79,12 +78,15 @@ class ChunckProcessor:
 		tokenizer = AutoTokenizer.from_pretrained(hyper_params['bert_model_name'])
 	elif hyper_params['chunker'] == 'CRF':
 		model, tokenizer = 'CRF', 'CRF'
-	nlp = load_stanza_model(lang, use_gpu)
+
+	def __init__(self, language):
+		self.language = language
+		self.nlp = load_stanza_model(self.language, self.use_gpu)
 
 	def run(self, sentence):
 		start_time = time.time()
 		all_sents, exts, ctime, etime = perform_extraction(sentence,
-													 self.lang,
+													 self.language,
 													 self.model,
 													 self.tokenizer, 
 													 self.nlp, show=False)
@@ -96,5 +98,5 @@ if __name__=="__main__":
 	sentence = "आदिम युग में सब लोग दिन भर काम से थक जाने के बाद मनोरंजन के लिए कही खुले में एक घेरा बनाकर बैठ जाते थे और उस घेरे के बीचों-बीच ही उनका भोजन पकता रहता , खान-पान होता और वही बाद में नाचना-गाना होता ।"
 	processor = ChunckProcessor()
 	data = processor.run(sentence)
-	print(data[1])
+	print(data)
 

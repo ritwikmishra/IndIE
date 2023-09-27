@@ -833,15 +833,16 @@ def extract(m, n, extraction_queue, is_a, running_no=0, show=False, argshow=Fals
 			extraction_queue = extract(m,c.id-1,extraction_queue,is_a,running_no+1,show,argshow,is_a_override) # <-------- calling recursive
 		else:
 			c.state = 'leaf done'
-		
-	
 	return extraction_queue              
 
 def load_stanza_model(lang, use_gpu=False):
+	# 1 = will not download anything, probably resulting in failure if the resources aren't already in place.
+	# 2 = will reuse the existing resources.json and models, but will download any missing models.
+	# 3 = will download a new resources.json and will overwrite any out of date models.
 	try:
 		nlp = stanza.Pipeline(lang,dir=stanza_path+'/'+stanza_version+'/',download_method=2,use_gpu=use_gpu) #stanza.Pipeline(lang, use_gpu=use_gpu)
 	except:
-		stanza.download(lang, dir=stanza_path+'/'+stanza_version+'/')
+		stanza.download(lang, dir=stanza_path+'/'+stanza_version+'/') # or model_dir=stanza_path+'/'+stanza_version+'/'
 		nlp = stanza.Pipeline(lang,dir=stanza_path+'/'+stanza_version+'/',download_method=2,use_gpu=use_gpu) # stanza.Pipeline(lang, use_gpu=use_gpu)
 	return nlp
 				

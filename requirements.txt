@@ -136,7 +136,7 @@ transformers==4.18.0
 twilio==6.45.1
 typing==3.7.4.1
 typing_extensions==4.1.1
-urllib3==1.25.10
+urllib3==1.26.17
 wasabi==0.6.0
 wcwidth==0.2.5
 webencodings==0.5.1

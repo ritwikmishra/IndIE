@@ -5,7 +5,7 @@ from utils import *
 
 
 class ChunckProcessor:
-	use_gpu = True
+	use_gpu = False
 
 	hyper_params = {
 		'run_ID': 26,

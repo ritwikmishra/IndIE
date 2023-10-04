@@ -2,6 +2,8 @@
 
 This is the code for the paper titled "IndIE: A Multilingual Open Information Extraction Tool For Indic Languages" accepted in the Findings of IJCNLP-AACL 2023.
 
+You can check out the live deployment of the IndIE [here](http://103.25.231.59:80).
+
 ## Installation
 
 * Git clone.

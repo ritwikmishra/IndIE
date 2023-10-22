@@ -29,9 +29,13 @@
     <div>
         {% for obj in data %}
             <p>Sentence: {{ obj.sentence }}<p>
-            {% for triple in obj.result %}
-                <p>{{ triple }}</p>
-            {% endfor %}
+            {% if obj.result %}
+                {% for triple in obj.result %}
+                    <p>{{ triple }}</p>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-danger" role="alert">No triple was generated, please try another sentence</div>
+            {% endif %}
         {% endfor %}
     </div>
     <hr>

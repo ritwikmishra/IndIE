@@ -64,7 +64,7 @@ nbclient==0.5.1
 nbconvert==6.0.7
 nbformat==5.1.2
 nest-asyncio==1.4.3
-nltk==3.5
+nltk==3.8.1
 notebook==6.2.0
 numexpr==2.7.1
 numpy==1.19.2
